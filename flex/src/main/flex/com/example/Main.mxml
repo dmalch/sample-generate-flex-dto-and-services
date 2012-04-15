@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<s:Application
+        xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:s="library://ns.adobe.com/flex/spark">
+    <s:layout>
+        <s:VerticalLayout/>
+    </s:layout>
+
+    <s:Label id="result"/>
+
+    <s:Button label="sampleMethod1" click="button1_clickHandler(event)"/>
+    <s:Button label="getSampleField1" click="button2_clickHandler(event)"/>
+    <s:Button label="getSampleField2" click="button3_clickHandler(event)"/>
+
+    <fx:Script><![CDATA[
+        private var _sampleService:SampleService = new SampleService();
+
+        private function button1_clickHandler(event:MouseEvent):void {
+            _sampleService.sampleMethod1();
+        }
+
+        private function button2_clickHandler(event:MouseEvent):void {
+            _sampleService.getSampleField1(new SampleDto());
+        }
+
+        private function button3_clickHandler(event:MouseEvent):void {
+            _sampleService.getSampleField2(new SampleDto());
+        }
+        ]]></fx:Script>
+</s:Application>

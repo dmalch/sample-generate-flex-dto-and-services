@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>git.example.com</artifactId>
+        <groupId>git.example.com</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>flex</artifactId>
+    <packaging>swf</packaging>
+
+    <build>
+        <sourceDirectory>src/main/flex</sourceDirectory>
+        <testSourceDirectory>src/test/flex</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.flexmojos</groupId>
+                <artifactId>flexmojos-maven-plugin</artifactId>
+                <version>3.9</version>
+                <extensions>true</extensions>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>com.adobe.flex</groupId>
+                        <artifactId>compiler</artifactId>
+                        <version>4.6.b.23201</version>
+                        <type>pom</type>
+                    </dependency>
+                </dependencies>
+
+                <configuration>
+                    <sourceFile>com/example/Main.mxml</sourceFile>
+                    <includeSources>
+                        <includeSource>${basedir}/src/main/flex</includeSource>
+                        <includeSource>${basedir}/target/generated-sources/flexmojos</includeSource>
+                    </includeSources>
+                    <targetPlayer>10.2</targetPlayer>
+                    <configurationReport>true</configurationReport>
+                    <includeJavaClasses>
+                        <includeJavaClass>com.example.*</includeJavaClass>
+                    </includeJavaClasses>
+                    <configFiles>
+                        <configFile>flex-config-swf-version-11.xml</configFile>
+                    </configFiles>
+                    <services>
+                        ../war/src/main/webapp/WEB-INF/flex/services-config.xml
+                    </services>
+                    <contextRoot>sample</contextRoot>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>compile-swf</id>
+                        <goals>
+                            <goal>compile-swf</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>generate</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>git.example.com</groupId>
+            <artifactId>jar</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>flex-framework</artifactId>
+            <version>4.6.b.23201</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.adobe.flexunit</groupId>
+            <artifactId>flexunit</artifactId>
+            <version>4.1-rc-2</version>
+            <type>swc</type>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
