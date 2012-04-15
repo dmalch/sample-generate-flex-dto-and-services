@@ -104,9 +104,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/flex" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/flex" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/flexmojos" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/target/classes" />
-      <excludeFolder url="file://$MODULE_DIR$/target/surefire-reports" />
-      <excludeFolder url="file://$MODULE_DIR$/target/test-classes" />
     </content>
     <orderEntry type="jdk" jdkName="Flexmojos SDK 4.6.b.23201" jdkType="__CompositeFlexSdk__" />
     <orderEntry type="sourceFolder" forTests="false" />
