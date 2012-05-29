@@ -31,7 +31,7 @@
             </snapshots>
         </repository>
         <repository>
-            <id>SpringFlex</id>
+            <id>springflex</id>
             <name>SpringFlex Source Repo</name>
             <url>https://src.springsource.org/svn/spring-flex/tags/spring-flex-1.5.0.RELEASE/local-repo/</url>
         </repository>

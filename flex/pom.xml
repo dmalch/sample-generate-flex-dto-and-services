@@ -42,6 +42,11 @@
                     <includeJavaClasses>
                         <includeJavaClass>com.example.*</includeJavaClass>
                     </includeJavaClasses>
+                    <templates>
+                        <base-remote-template>
+                            ${project.basedir}/src/main/generator-templates/remoteBase.gsp
+                        </base-remote-template>
+                    </templates>
                     <configFiles>
                         <configFile>flex-config-swf-version-11.xml</configFile>
                     </configFiles>
@@ -87,7 +92,7 @@
         <dependency>
             <groupId>com.adobe.flexunit</groupId>
             <artifactId>flexunit</artifactId>
-            <version>4.1-rc-2</version>
+            <version>4.0-rc-1</version>
             <type>swc</type>
             <scope>test</scope>
         </dependency>
