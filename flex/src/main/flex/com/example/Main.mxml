@@ -3,28 +3,68 @@
         xmlns:fx="http://ns.adobe.com/mxml/2009"
         xmlns:s="library://ns.adobe.com/flex/spark">
     <s:layout>
-        <s:VerticalLayout/>
+        <s:VerticalLayout paddingLeft="10" paddingTop="10" paddingBottom="10" paddingRight="10"/>
     </s:layout>
 
-    <s:Label id="result"/>
+    <s:Panel>
+        <s:layout>
+            <s:VerticalLayout paddingLeft="10" paddingTop="10" paddingBottom="10" paddingRight="10"/>
+        </s:layout>
+        <s:HGroup>
+            <s:Label text="Result:"/>
+            <s:Label text="{sampleMethodResponder.lastResult}"/>
+        </s:HGroup>
+        <s:Button label="sampleMethod1" click="button1_clickHandler()"/>
+    </s:Panel>
 
-    <s:Button label="sampleMethod1" click="button1_clickHandler(event)"/>
-    <s:Button label="getSampleField1" click="button2_clickHandler(event)"/>
-    <s:Button label="getSampleField2" click="button3_clickHandler(event)"/>
+    <s:Panel>
+        <s:layout>
+            <s:VerticalLayout paddingLeft="10" paddingTop="10" paddingBottom="10" paddingRight="10"/>
+        </s:layout>
+        <s:HGroup>
+            <s:Label text="Result:"/>
+            <s:Label text="{getSampleField1Responder.lastResult}"/>
+        </s:HGroup>
+        <s:Button label="getSampleField1" click="button2_clickHandler()"/>
+    </s:Panel>
+
+    <s:Panel>
+        <s:layout>
+            <s:VerticalLayout paddingLeft="10" paddingTop="10" paddingBottom="10" paddingRight="10"/>
+        </s:layout>
+        <s:HGroup>
+            <s:Label text="Result:"/>
+            <s:Label text="{getSampleField2Responder.lastResult}"/>
+        </s:HGroup>
+        <s:Button label="getSampleField2" click="button3_clickHandler()"/>
+    </s:Panel>
+
+    <fx:Declarations>
+        <s:CallResponder id="sampleMethodResponder"/>
+        <s:CallResponder id="getSampleField1Responder"/>
+        <s:CallResponder id="getSampleField2Responder"/>
+    </fx:Declarations>
 
     <fx:Script><![CDATA[
         private var _sampleService:SampleService = new SampleService();
 
-        private function button1_clickHandler(event:MouseEvent):void {
-            _sampleService.sampleMethod1();
+        private function button1_clickHandler():void {
+            _sampleService.sampleMethod1(sampleMethodResponder);
         }
 
-        private function button2_clickHandler(event:MouseEvent):void {
-            _sampleService.getSampleField1(new SampleDto());
+        private function button2_clickHandler():void {
+            _sampleService.getSampleField1(sampleDto(), getSampleField1Responder);
         }
 
-        private function button3_clickHandler(event:MouseEvent):void {
-            _sampleService.getSampleField2(new SampleDto());
+        private function button3_clickHandler():void {
+            _sampleService.getSampleField2(sampleDto(), getSampleField2Responder);
+        }
+
+        private static function sampleDto():SampleDto {
+            var sampleDto:SampleDto = new SampleDto();
+            sampleDto.field1 = "field1 value";
+            sampleDto.field2 = "field2 value";
+            return sampleDto;
         }
         ]]></fx:Script>
 </s:Application>

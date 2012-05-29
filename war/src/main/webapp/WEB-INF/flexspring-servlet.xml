@@ -18,7 +18,7 @@
     </flex:message-broker>
 
     <bean class="com.example.SampleService">
-        <flex:remoting-destination exclude-methods="ignoredMethod" channels="amf"/>
+        <flex:remoting-destination destination-id="sampleService" exclude-methods="ignoredMethod" channels="amf"/>
     </bean>
 
 </beans>

@@ -32,6 +32,7 @@
                 </dependencies>
 
                 <configuration>
+                    <debug>true</debug>
                     <sourceFile>com/example/Main.mxml</sourceFile>
                     <includeSources>
                         <includeSource>${basedir}/src/main/flex</includeSource>
@@ -46,6 +47,9 @@
                         <base-remote-template>
                             ${project.basedir}/src/main/generator-templates/remoteBase.gsp
                         </base-remote-template>
+                        <base-bean-template>
+                            ${project.basedir}/src/main/generator-templates/beanBase.gsp
+                        </base-bean-template>
                     </templates>
                     <configFiles>
                         <configFile>flex-config-swf-version-11.xml</configFile>

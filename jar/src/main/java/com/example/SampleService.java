@@ -6,8 +6,8 @@ import org.granite.messaging.service.annotations.RemoteDestination;
 
 @RemoteDestination(id = "sampleService", channel = "amf")
 public class SampleService {
-    public final SampleDto sampleMethod1() {
-        return new SampleDto();
+    public final String sampleMethod1() {
+        return "test output";
     }
 
     public final String getSampleField1(@Param("sampleDto") final SampleDto sampleDto) {
